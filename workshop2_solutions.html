@@ -27,11 +27,13 @@
 			repeatingText();
 				
 			// EX. 3			 
-			if (navigator == navigator.userAgent.indexOf("Firefox") < 0 ) {
-  				alert("Ei ole firefox");
- 			 	location.href = "http://www.microsoft.com";
-			}else {
- 				 location.href = "http://www.mozilla.org";
+			if (navigator.appCodeName = "Mozilla") {
+				// DO SOMETHING
+				location.href = "http://www.mozilla.org"
+			}
+			else {
+				// DO SOMETHING ELSE
+				location.href = "http://www.microsoft.com"
 			}
 
 			// 2
