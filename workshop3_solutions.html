@@ -38,6 +38,46 @@
             function showTable(){
                 document.getElementById('table-here').innerHTML = "<table border='1'><tr><td>First column</td><td>Two second</td></tr></table>";
             }
+            // Optional: use backticks
+             function showTable2(){
+                var html = `
+                <table id="example" class="display" cellspacing="0" width="100%">
+                   <thead>
+                      <tr>
+                         <th>Name</th>
+                         <th>Position</th>
+                         <th>Salary</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr>
+                         <td>Tiger Nixon</td>
+                         <td>System Architect</td>
+                         <td>$320,800</td>
+                      </tr>
+                      <tr>
+                         <td>Garrett Winters</td>
+                         <td>Accountant</td>
+                         <td>$170,750</td>
+                      </tr>
+                      <tr>
+                         <td>Ashton Cox</td>
+                         <td>Junior Technical Author</td>
+                         <td>$86,000</td>
+                      </tr>
+                   </tbody>
+                </table>
+                `;
+                 document.write( html );
+            }              
+             // Ex1. Button 3
+            function printArrayData(){
+                document.write("<table border='1'>");
+                for (var i=0; i < persons.length; i+=3){
+                    document.write("<tr><td>" + persons[i] + "</td><td>" + persons[i+1] + "</td><td>" + persons[i+2] + "</td></tr>");
+                }
+                document.write("</table>");
+            }
             function count(){
                 // Increase the number on keypresses
                 counter++; 
@@ -77,7 +117,7 @@
         <p>
             <button onclick="alert('Clicked me!' + new Date())" >Button 1</button>
             <button onclick="showDate();" >Button 1</button>
-            <button onclick="showTable();">Button 2</button>
+            <button onclick="showTable2();">Button 2</button>
             <button>Button 3</button>
         </p>
         <ul>
@@ -86,7 +126,7 @@
             <li>The second button should call a function called showTable()". ShowTable function should output a simple HTML-table (below) to the page. Feel free to modify the data on the table.</li>
         </ul>
         <div id="table-here"></div>
-        <table id="example" class="display">
+        <table id="example" class="display" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>Name</th>
