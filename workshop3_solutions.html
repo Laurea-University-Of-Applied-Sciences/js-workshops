@@ -25,6 +25,8 @@
             // This counter is used to keep in track of the keypresses
             // It has to be declared here, so that it doesnt get reset on every keypress
             var counter= 0;
+            // EXERCISE 1:
+            // button 1
             // Displays a date with custom format on the screen
             function showDate(){
                 var d = new Date();
@@ -34,6 +36,7 @@
                 var current = day+"/"+month+"/"+year;
                 alert(current);
             }
+            // button 2
             // Outputs an html table on the page
             function showTable(){
                 document.getElementById('table-here').innerHTML = "<table border='1'><tr><td>First column</td><td>Two second</td></tr></table>";
@@ -69,7 +72,25 @@
                 </table>
                 `;
                  document.write( html );
-            }              
+            }
+            // button 3
+            function geoLocation() {
+                var options = {
+                    enableHighAccuracy: true,
+                    timeout: 5000,
+                    maximumAge: 0
+                };
+                navigator.geolocation.getCurrentPosition(success, error, [options]);
+                function success(pos) {
+                    var text = 'Your current position is: latitude: ' + pos.coords.latitude + ' longitude: ' + pos.coords.longitude;
+                    console.log(text);
+                    document.write(text);
+
+                }
+                function error() {
+                    console.warn(`ERROR(${err.code}): ${err.message}`);
+                }
+            }
              // Ex1. Button 3
             function printArrayData(){
                 document.write("<table border='1'>");
@@ -78,6 +99,7 @@
                 }
                 document.write("</table>");
             }
+            // EXERCISE 3
             function count(){
                 // Increase the number on keypresses
                 counter++; 
@@ -118,7 +140,7 @@
             <button onclick="alert('Clicked me!' + new Date())" >Button 1</button>
             <button onclick="showDate();" >Button 1</button>
             <button onclick="showTable2();">Button 2</button>
-            <button>Button 3</button>
+            <button onclick="geoLocation()">Button 3</button>
         </p>
         <ul>
             <li>The first button should open an alert-button, which will say "You clicked me!" </li>
