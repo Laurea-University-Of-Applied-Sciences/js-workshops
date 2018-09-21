@@ -18,7 +18,16 @@
                 border: 1px solid gray;
                 width: 50%;
                 border-collapse: collapse;
+                margin: 10px;
+                padding: 10px;
             }
+            table, tr, td, th{
+                border: 1px solid gray;
+                width: 50%;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+
         </style>
         <script>
             <!-- JavaScript goes here -->
@@ -27,21 +36,21 @@
     <body>
         <h1>Workshop 3: JavaScript Events</h1>
         <hr />
-        <p>In this exercise we will practice the use of BOM and the JavaScript events. Use the lecture-material as a reference guide side by side these exercises. It might also be a good idea to save the lines of code you write during the exercises for later use.</p>
+        <p>In this exercise we will practice the use of JavaScript events. Use the lecture-material as a reference guide side by side with these exercises. It might also be a good idea to save the lines of code you write during the exercises for later use.</p>
 
         <h2>Exercise 1</h2>
         <p>Below you will see three buttons. Edit the source code and add an onClick-events to these buttons.</p>
         <p>
-          <button>Button 1</button>
-          <button>Button 2</button>
-          <button>Button 3</button>
+          <button>Click me</button>
+          <button>Show table</button>
+          <button>Geolocation</button>
         </p>
 
-        <ul>
+        <ol>
           <li>The first button should open an alert-button, which will say "You clicked me!" </li>
           <li> When you see the button working, add the current date after the text by using the Date() -function.</li>
           <li>The second button should call a function called showTable()". ShowTable function should output a simple HTML-table (below) to the page. Use document.write to print data. Feel free to modify the data on the table.</li>
-        </ul>
+        </ol>
         <table id="example" class="display">
             <thead>
                 <tr>
@@ -78,15 +87,17 @@
                 </tr>              
             </tbody>
         </table>
-        <ul>
+        <ol start="4">
             <li>The last button should check Geolocation of the user, and output it to the console and to the page. Note: Some browsers might not allow you to do this. Try different browsers if you get errors.</li>
-        </ul>
+        </ol>
+        <hr/>
         <h2>Exercise 2</h2>
         <ul>
             <li>Add an&nbsp;onMouseOver event on the&nbsp;Heading "Exercise 2" of this page.&nbsp;It should&nbsp;fire when the users mouse is moved 
         over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
             <li>Add another event, which will fire then the mouse leaves the Exercise 2 -heading. This time show an alert window to the user saying: "Bye bye mouse!"</li>
         </ul>
+        <hr/>
         <h2>Exercise 3</h2>
         <p>Below you will see a simple form.</p>
         <ul>
@@ -99,6 +110,7 @@
             <span id="charcount"></span>
             <button>Send me</button>
         </form>
+        <hr/>
         <h2>Exercise 4</h2>
         <div id="coordinates"></div>
         <p>Add onMouseMove -event to the DIV-element above. When you move mouse over the DIV (rectangle) the program should output the coordinates of your pointer. Try first outputting to the console using console.log.</p>
