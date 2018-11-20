@@ -100,7 +100,7 @@
             <p>Select an item from the list.</p>
             <p>
                 <select name="mySelect" id="mySelect" onchange="">
-                    <option value="first">Iltalehti</option>
+                    <option value="first">Yahoo</option>
                     <option value="second">Second item</option>
                     <option value="third">Third item</option>
                 </select>
@@ -132,7 +132,7 @@
             });
             $('#mySelect').change(function() {
                 if(this.value == 'first') {
-                    $('#ajax').load('http://www.iltalehti.fi/rss.xml');
+                    $('#ajax').load('https://meijastiina.github.io/news_rss_topstories.xml');
                 } else if (this.value == 'second') {
                     $('#ajax').load('https://meijastiina.github.io/ajax_example.txt');
                 } else {
