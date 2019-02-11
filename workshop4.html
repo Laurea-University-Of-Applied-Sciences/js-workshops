@@ -27,16 +27,13 @@
 				border-spacing: 0;
 				border-collapse: separate;
 			}
+			.red-box {
+				background: red;
+				width: 50px;
+				height: 50px;
+			}
 		</style>
 		<script>
-			function changeHeading() {
-				var element = document.getElementsByTagName('h1')[0];
-				element.innerHTML = "Modified heading";
-			}
-			function secondButton() {
-				var element = document.getElementsByTagName('h2')[1];
-				element.style = "";
-			}
 		</script>
 	</head>
 	<body>
@@ -71,7 +68,7 @@
 			<br>
 			<label>
 				<input onchange="show()" type="checkbox" name="CheckboxGroup1" value="2" id="CheckboxGroup1_1">
-				Show m
+				Show me
 			</label>
 			<br>
 			<label>
@@ -80,10 +77,11 @@
 			</label>
 		</p>
 		<ul>
-		  <li>First checkbox: Find out which element has been described with the id &quot;data&quot;. Change the visibility (display value) of the element to none. What happens?</li>
+		  <li>First checkbox: Find out which element has been described with the id &quot;me&quot;. Change the visibility (display value) of the element to none. What happens?</li>
 		  <li>Second checkbox should return the visibility of the element to a normal state (block).</li>
 		  <li>Third checkbox should find the elements with class &quot;surprise&quot; and change the font size to 20.</li>
 		</ul>
+		<div id="me" class="red-box"></div>
 		<p>&nbsp;</p>
 		<hr/>
 		<h2>Exercise 3: Images and pulldowns</h2>

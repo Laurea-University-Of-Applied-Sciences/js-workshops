@@ -24,6 +24,11 @@
                 position: relative;
                 left:0px;
             }
+            .red-box {
+                background: red;
+                width: 50px;
+                height: 50px;
+            }
         </style>
         <script>
             <!-- JavaScript goes here -->
@@ -42,11 +47,17 @@
                 ptags[3].innerHTML += emtags[1].innerHTML;
             }
             <!-- Assignment 2 -->
-            function hide(){
-                document.getElementById('data').style = "display: none";
+            function hideMe(){
+                document.getElementById('me').style = "display: none";
             }
             function show(){
-                document.getElementById('data').style = "display: block";
+                document.getElementById('me').style = "display: block";
+            }
+            function surprise() {
+                var elements = document.getElementsByClassName('surprise');
+                for(var i=0; i<elements.length; i++) {
+                    elements[i].style = "font-size: 20px;"
+                }
             }
             <!-- Assignment 3 -->
             function showBorder(){
@@ -153,7 +164,7 @@ color and the background color</li>
 		<p class="surprise">Add onchange -events to following checkboxes.</p>
 		<p>
             <label>
-                <input onchange="hide()" name="CheckboxGroup1" type="checkbox" id="CheckboxGroup1_0" title="Actions" value="1">
+                <input onchange="hideMe()" name="CheckboxGroup1" type="checkbox" id="CheckboxGroup1_0" title="Actions" value="1">
                 Hide me 
             </label>
             <br>
@@ -163,7 +174,7 @@ color and the background color</li>
             </label>
             <br>
             <label>
-                <input type="checkbox" name="CheckboxGroup1" value="3" id="CheckboxGroup1_2"> 
+                <input onchange="surprise()" type="checkbox" name="CheckboxGroup1" value="3" id="CheckboxGroup1_2">
                 Surprise
             </label>
 		</p>
@@ -173,7 +184,8 @@ color and the background color</li>
 			<li>Second checkbox should return the visibility of the element to a normal state (block).</li>
 			<li>Third checkbox should find the elements with class &quot;surprise&quot; and change the font size to 20.</li>
 		</ul>
-		<p>&nbsp;</p>
+        <div id="me" class="red-box"></div>
+        <p>&nbsp;</p>
 		<hr/>
         <h2>Exercise 3: Images and pulldowns</h2>
 		<ul>
