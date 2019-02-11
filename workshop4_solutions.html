@@ -69,7 +69,7 @@
             function changeImage(){
                 var data = document.getElementById('mySelect').value;
                 var image = document.getElementById('carimage');
-                //alert("Your selection: "+data);
+                alert("Your selection: "+data);
                 if (data == "Audi") {
                     image.src = "http://o.aolcdn.com/commerce/autodata/images/USC70AUC017A021001.jpg";
                 }
@@ -107,7 +107,10 @@
                 console.log("Moved to "+left+"px");
             }
             //3
-            function fadeOut(){ 
+            function fadeOut(){
+                setInterval(function(){doFadeOut();},1000);
+            }
+            function doFadeOut(){
                 var img = document.getElementById('carimage');   
                 // Store the current value of opacity (defined in HTML)
                 var opac = parseInt(img.style.opacity);
@@ -127,7 +130,7 @@
                 // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
-                var cell2 = row.insertCell(2);
+                var cell3 = row.insertCell(2);
                 // read the values of the fields on page
                 var name = document.getElementById('textfield').value;
                 var position  = document.getElementById('textfield2').value;
