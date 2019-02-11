@@ -3,137 +3,9 @@
     <head>
         <meta charset="utf-8">
         <title>Workshop 3 Solutions</title>
-        <style>
-            body {
-                font-family: "Trebuchet MS", Helvetica, sans-serif;
-                color: #333333;
-            }
-
-            div {
-                width: 200px;
-                height: 100px;
-                border: 1px solid black;
-                margin: 10px;
-                padding: 10px;
-            }
-            table, tr, td, th{
-                border: 1px solid gray;
-                width: 50%;
-                border-collapse: collapse;
-                padding: 5px;
-            }
-        </style>
-        <script>
-            <!-- JavaScript goes here -->
-            // This counter is used to keep in track of the keypresses
-            // It has to be declared here, so that it doesnt get reset on every keypress
-            var counter= 0;
-            // EXERCISE 1:
-            // button 1
-            // Displays a date with custom format on the screen
-            function showDate(){
-                var d = new Date();
-                var day = d.getDate();
-                var month = d.getMonth()+1;
-                var year = d.getFullYear();
-                var current = day+"/"+month+"/"+year;
-                alert(current);
-            }
-            // button 2
-            // Outputs an html table on the page
-            function showTable(){
-                document.getElementById('table-here').innerHTML = "<table border='1'><tr><td>First column</td><td>Two second</td></tr></table>";
-            }
-            // Optional: use backticks
-             function showTable2(){
-                var html = `
-                <table id="example" class="display" cellspacing="0" width="100%">
-                   <thead>
-                      <tr>
-                         <th>Name</th>
-                         <th>Position</th>
-                         <th>Salary</th>
-                      </tr>
-                   </thead>
-                   <tbody>
-                      <tr>
-                         <td>Tiger Nixon</td>
-                         <td>System Architect</td>
-                         <td>$320,800</td>
-                      </tr>
-                      <tr>
-                         <td>Garrett Winters</td>
-                         <td>Accountant</td>
-                         <td>$170,750</td>
-                      </tr>
-                      <tr>
-                         <td>Ashton Cox</td>
-                         <td>Junior Technical Author</td>
-                         <td>$86,000</td>
-                      </tr>
-                   </tbody>
-                </table>
-                `;
-                 document.write( html );
-            }
-            // button 3
-            function geoLocation() {
-                var options = {
-                    enableHighAccuracy: true,
-                    timeout: 5000,
-                    maximumAge: 0
-                };
-                navigator.geolocation.getCurrentPosition(success, error, [options]);
-                function success(pos) {
-                    var text = 'Your current position is: latitude: ' + pos.coords.latitude + ' longitude: ' + pos.coords.longitude;
-                    console.log(text);
-                    document.write(text);
-
-                }
-                function error() {
-                    console.warn(`ERROR(${err.code}): ${err.message}`);
-                }
-            }
-             // Ex1. Button 3
-            function printArrayData(){
-                document.write("<table border='1'>");
-                for (var i=0; i < persons.length; i+=3){
-                    document.write("<tr><td>" + persons[i] + "</td><td>" + persons[i+1] + "</td><td>" + persons[i+2] + "</td></tr>");
-                }
-                document.write("</table>");
-            }
-            // EXERCISE 3
-            function count(){
-                // Increase the number on keypresses
-                counter++; 
-                // Find an element with an id "counter" and place the variable there
-                document.getElementById('counter').innerHTML = counter; 
-            }
-            function attention(){
-                // Find the element with an id "textbox" on the page
-                var textbox = document.getElementById('textdata');
-                // Change the contents
-                textbox.value='Please fill in with proper data!'
-                // Change the background to red
-                textbox.style ="background: red";
-            }
-            function validate(){
-                var textbox = document.getElementById('textdata');
-                // If the field is empty
-                if (textbox.value == ''){
-                    alert("Field is empty!");
-                    return false;
-                }                    
-            }
-            function showXY(event){
-                var x = event.clientX;
-                var y = event.clientY;
-                var coords = "X coords: " + x + ", Y coords: " + y;
-                document.getElementById("coordinates").innerHTML = coords;
-            }
-        </script>
+        <link rel="stylesheet" href="css/styles.css">
     </head>
-    <body>
+    <body class="ws3">
         <h1>Workshop 3: JavaScript Events</h1>
         <hr />
         <p>In this exercise we will practice the use of BOM and the JavaScript events. Use the lecture-material as a reference guide side by side these exercises. It might also be a good idea to save the lines of code you write during the exercises for later use.</p>
@@ -192,7 +64,7 @@
             <li>The last button should check Geolocation of the user, and output it to the console and to the page.</li>
         </ol>
         <hr/>
-        <h2 onmouseover="console.log('On mouse over');">Exercise 2</h2>
+        <h2 onmouseover="console.log('Stepped over my a mouse!');" onmouseleave="alert('Bye bye mouse!');" >Exercise 2</h2>
         <ul>
             <li>Add an&nbsp;onMouseOver event on the&nbsp;Heading "Exercise 2" of this page.&nbsp;It should&nbsp;fire when the users mouse is moved 
 over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
@@ -218,6 +90,115 @@ over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
         <div onmousemove="showXY(event);" id="coordinates"></div>
         <p>Mouse over the rectangle above, and get the coordinates of your mouse pointer.</p>
         <p>When the mouse is moved over the div, use document.write to display the horizontal and vertical coordinates of your mouse pointer, whose values are returned from the X and Y properties on the MouseEvent object.</p>
+        <script>
+            <!-- JavaScript goes here -->
+            // This counter is used to keep in track of the keypresses
+            // It has to be declared here, so that it doesnt get reset on every keypress
+            var counter= 0;
+            // EXERCISE 1:
+            // button 1
+            // Displays a date with custom format on the screen
+            function showDate(){
+                var d = new Date();
+                var day = d.getDate();
+                var month = d.getMonth()+1;
+                var year = d.getFullYear();
+                var current = day+"/"+month+"/"+year;
+                alert(current);
+            }
+            // button 2
+            // Outputs an html table on the page
+            function showTable(){
+                document.getElementById('table-here').innerHTML = "<table border='1'><tr><td>First column</td><td>Two second</td></tr></table>";
+            }
+            // Optional: use backticks
+            function showTable2(){
+                var html = `
+                <table id="example" class="display" cellspacing="0" width="100%">
+                   <thead>
+                      <tr>
+                         <th>Name</th>
+                         <th>Position</th>
+                         <th>Salary</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr>
+                         <td>Tiger Nixon</td>
+                         <td>System Architect</td>
+                         <td>$320,800</td>
+                      </tr>
+                      <tr>
+                         <td>Garrett Winters</td>
+                         <td>Accountant</td>
+                         <td>$170,750</td>
+                      </tr>
+                      <tr>
+                         <td>Ashton Cox</td>
+                         <td>Junior Technical Author</td>
+                         <td>$86,000</td>
+                      </tr>
+                   </tbody>
+                </table>
+                `;
+                document.write( html );
+            }
+            // button 3
+            function geoLocation() {
+                var options = {
+                    enableHighAccuracy: true,
+                    timeout: 5000,
+                    maximumAge: 0
+                };
+                navigator.geolocation.getCurrentPosition(success, error, [options]);
+                function success(pos) {
+                    var text = 'Your current position is: latitude: ' + pos.coords.latitude + ' longitude: ' + pos.coords.longitude;
+                    console.log(text);
+                    document.write(text);
+
+                }
+                function error() {
+                    console.warn(`ERROR(${err.code}): ${err.message}`);
+                }
+            }
+            // Ex1. Button 3
+            function printArrayData(){
+                document.write("<table border='1'>");
+                for (var i=0; i < persons.length; i+=3){
+                    document.write("<tr><td>" + persons[i] + "</td><td>" + persons[i+1] + "</td><td>" + persons[i+2] + "</td></tr>");
+                }
+                document.write("</table>");
+            }
+            // EXERCISE 3
+            function count(){
+                // Increase the number on keypresses
+                counter++;
+                // Find an element with an id "counter" and place the variable there
+                document.getElementById('counter').innerHTML = counter;
+            }
+            function attention(){
+                // Find the element with an id "textbox" on the page
+                var textbox = document.getElementById('textdata');
+                // Change the contents
+                textbox.value='Please fill in with proper data!'
+                // Change the background to red
+                textbox.style ="background: red";
+            }
+            function validate(){
+                var textbox = document.getElementById('textdata');
+                // If the field is empty
+                if (textbox.value == ''){
+                    alert("Field is empty!");
+                    return false;
+                }
+            }
+            function showXY(event){
+                var x = event.clientX;
+                var y = event.clientY;
+                var coords = "X coords: " + x + ", Y coords: " + y;
+                document.getElementById("coordinates").innerHTML = coords;
+            }
+        </script>
     </body>
 </html>
 
