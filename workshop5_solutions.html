@@ -2,64 +2,8 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Workshop 5</title>
-        <style>
-            body {
-                font-family: "Trebuchet MS", Helvetica, sans-serif;
-                color: #333333;
-            }
-
-            div {
-                width: 200px;
-                margin: 20px;
-                padding: 20px;
-                border: 1px solid black;
-            }
-            .no-border {
-                border: 0;
-                height: auto;
-                padding: 0;
-                margin: 0;  
-            }
-            table, tr, td{
-                border: 1px solid gray;
-                width: 50%;
-            }
-            .error, .error textarea, .error input {
-                border-color: red;
-                color: red;
-            }
-            span {
-                display: none;
-            }
-            .error span {
-                display: block;
-            }
-        </style>
-        <script src="shopping.js"></script>
-        <script>
-            function validateFields () {
-                retVal = true;
-                let email = document.getElementById("email");
-                let comments = document.forms.contactForm.comment;
-                if (email.value == null || email.value.length < 6 || email.value.length > 15 || email.value.indexOf("@") < 0) {
-                    email.parentNode.parentNode.classList.add("error");
-                    retVal = false; 
-                } else {
-                    email.parentNode.parentNode.classList.remove("error");
-                }
-                if (comments.value == null || comments.value.length < 1) {
-                    comments.parentNode.classList.add("error");
-                    retVal = false;
-                } else {
-                    if (retVal) {
-                        comments.parentNode.classList.remove("error");
-                        alert("Comments:\n" + comments.value + "\n\nemail:" + email.value);
-                    }
-                }
-                return retVal;
-            }
-        </script>
+		<title>Workshop 5 / Solutions</title>
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
         <h1>Workshop 5: Smart Forms</h1>
@@ -166,5 +110,29 @@
                 <p data-line="41">After choosing the box, the user is shown an   input field which asks detailed information regarding on the selected   contact method.</p>
           </li>
         </ul>
+        <script src="js/shopping.js"></script>
+        <script>
+            function validateFields () {
+                retVal = true;
+                let email = document.getElementById("email");
+                let comments = document.forms.contactForm.comment;
+                if (email.value == null || email.value.length < 6 || email.value.length > 15 || email.value.indexOf("@") < 0) {
+                    email.parentNode.parentNode.classList.add("error");
+                    retVal = false;
+                } else {
+                    email.parentNode.parentNode.classList.remove("error");
+                }
+                if (comments.value == null || comments.value.length < 1) {
+                    comments.parentNode.classList.add("error");
+                    retVal = false;
+                } else {
+                    if (retVal) {
+                        comments.parentNode.classList.remove("error");
+                        alert("Comments:\n" + comments.value + "\n\nemail:" + email.value);
+                    }
+                }
+                return retVal;
+            }
+        </script>
     </body>
 </html>

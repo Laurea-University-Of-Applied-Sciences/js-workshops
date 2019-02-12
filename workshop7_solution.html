@@ -1,133 +1,11 @@
 <!DOCTYPE html>
 <HTML lang="en">
 	<head>
-		<title>Workshop 7</title>
+		<title>Workshop 7 / Solutions</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/styles.css">
-		<style>
-			div {
-					min-width: 200px;
-					width: auto;
-					min-height: 200px;
-					height: auto;
-					border: 1px solid black;
-			}
-			table, tr, td{
-				border: 1px solid gray;
-				width: 50%;
-			}
-		</style>
-		<script>
-			function parseData(){
-				// Get all quote and author tags from the page
-				var qdata = document.getElementsByTagName('quote');
-				var adata = document.getElementsByTagName('author');
-				// Output on console.
-				// You can also use qdata[0].childNodes[0].nodeValue;
-				console.log ( qdata[0].innerHTML );
-				console.log ( adata[0].innerHTML );
-				/*
-				// If there were many tags, one could loop through it
-				for (var i=0; i < x.length; i++){
-				x[i].innerHTML;
-				console.log(i);
-				}*/
-			}
-
-            // EX 2
-            function loadXMLFile() {
-                // Create AJAX object
-                var xmlhttp = new XMLHttpRequest();
-                // Specify the data / url to be fetched
-                xmlhttp.open("GET", "http://iceberg-cycle.codio.io/5: Asynchronous JavaScript (AJAX)/famous-quotes.xml", true);
-                xmlhttp.send();
-                xmlhttp.onreadystatechange = function() {
-                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-                        // find myDiv and insert results there
-                        document.getElementById("quotes").innerHTML = xmlhttp.responseText;
-                    }
-                }
-            }
-
-            // EX3
-            function loadAndParseXML() {
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("GET", "http://iceberg-cycle.codio.io/5: Asynchronous JavaScript (AJAX)/famous-quotes.xml", true);
-                xmlhttp.send();
-                xmlhttp.onreadystatechange = function() {
-                    // If we are still loading...
-                    if(xmlhttp.readyState === 1) {
-                        document.getElementById("myDiv").innerHTML = "Wait while Im loading...";
-                    }
-                    // If everything is ok
-                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-                        // Instead of just placing the RAW XML content we need to parse it
-                        //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
-                        //
-                        //
-                        //  document.getElementById("myDiv").innerHTML = txt;
-                        var xmlDoc = xmlhttp.responseXML;
-                        // Once again we find some tags from our variable containing XML
-                        var quotes = xmlDoc.getElementsByTagName("quote");
-                        var authors = xmlDoc.getElementsByTagName("author");
-                        // And since they are arrays, we use for loop to travel through them
-                        // I wanted to display results in a table so im creating table tags and table cells
-                        //
-                        var txt = "<table>";
-                        for(i = 0; i < quotes.length; i++) {
-                            txt += "<tr><td>" + quotes[i].childNodes[0].nodeValue + "</td>"+
-                                "<td>"    +authors[i].childNodes[0].nodeValue +  "</td></tr>";
-                            console.log(txt);
-                        }
-                        txt += "</table>";
-                        // Finally we place the contents in a div
-                        document.getElementById("tabledata").innerHTML = txt;
-                    }
-
-                }
-            }
-            // EX 4
-            // Lets define the same function as before, but with a parameter in which we can set the url/filename to be fetceh
-            function loadAndParseNews(filename) {
-                var xmlhttp = new XMLHttpRequest();
-                // We replace the statif file with URL
-                //
-                xmlhttp.open("GET", filename, true);
-                xmlhttp.send();
-                xmlhttp.onreadystatechange = function() {
-                    // If we are still loading...
-                    if(xmlhttp.readyState === 1) {
-                        document.getElementById("newsfeed").innerHTML = "Wait while Im loading...";
-                    }
-                    // If everything is ok
-                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-                        // Instead of just placing the RAW XML content we need to parse it
-                        //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
-                        //
-                        var xmlDoc = xmlhttp.responseXML;
-                        console.log(xmlDoc);
-                        // Once again we find some tags from our variable containing XML
-                        var items = xmlDoc.getElementsByTagName("item");
-                        // And since they are arrays, we use for loop to travel through them
-                        // I wanted to display results in a table so im creating table tags and table cells
-                        //
-                        //
-                        var item, feedlink, name, description, content = '';
-                        for(i = 0; i < items.length; i++) {
-                            feedlink = items[i].getElementsByTagName('link').item(0).firstChild.nodeValue;
-                            name = items[i].getElementsByTagName('title').item(0).firstChild.nodeValue;
-                            item = '<li>'+ name + '</li>';
-                            item = '<li><a href="'+feedlink+'">'+ name + '</a></li>';
-                            content += item;
-                        }
-                        // Finally we place the contents in a div
-                        document.getElementById("newsfeed").innerHTML = "<ul>"+content+"</ul>";
-                    }
-                }
-            }
-		</script>
 	</head>
-	<body>
+	<body class="ws7">
 		<h1>Workshop 7: Using AJAX and parsing XML - Solutions</h1>
 		<hr />
 		<p><br>
@@ -138,7 +16,7 @@
 		<p>If you get "Blocked loading mixed active content" error, please check whether you're using http or https for your http requests. More info on this in <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content" target="_blank">https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content</a></p>
 		<hr/>
 		<h2>Exercise 1: Parsing XML data </h2>
-		<p>This page has XML data embedded into it. See page source, line 78. The browser cannot display it properly, but it's there. Below you can also see the structure data.</p>
+		<p>This page has XML data embedded into it. See page source, line 40. The browser cannot display it properly, but it's there. Below you can also see the structure data.</p>
 		<p>Write a function called parseData(), which will output the quote and author tags from XML when button is clicked.
 		Hint: Use document.getElementsByTagName() function. See PowerPoint for reference.</p>
 
@@ -239,5 +117,114 @@
 		<input type="button" name="Fetch3" id="Fetch3c" value="Load Iltalehti Newsfeed" onclick="loadAndParseNews('http://www.iltalehti.fi/rss/uutiset.xml')">
 		<div id="newsfeed">
 		</div>
+		<script>
+            function parseData(){
+                // Get all quote and author tags from the page
+                var qdata = document.getElementsByTagName('quote');
+                var adata = document.getElementsByTagName('author');
+                // Output on console.
+                // You can also use qdata[0].childNodes[0].nodeValue;
+                console.log ( qdata[0].innerHTML );
+                console.log ( adata[0].innerHTML );
+                /*
+                // If there were many tags, one could loop through it
+                for (var i=0; i < x.length; i++){
+                x[i].innerHTML;
+                console.log(i);
+                }*/
+            }
+
+            // EX 2
+            function loadXMLFile() {
+                // Create AJAX object
+                var xmlhttp = new XMLHttpRequest();
+                // Specify the data / url to be fetched
+                xmlhttp.open("GET", "http://iceberg-cycle.codio.io/5: Asynchronous JavaScript (AJAX)/famous-quotes.xml", true);
+                xmlhttp.send();
+                xmlhttp.onreadystatechange = function() {
+                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        // find myDiv and insert results there
+                        document.getElementById("quotes").innerHTML = xmlhttp.responseText;
+                    }
+                }
+            }
+
+            // EX3
+            function loadAndParseXML() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", "http://iceberg-cycle.codio.io/5: Asynchronous JavaScript (AJAX)/famous-quotes.xml", true);
+                xmlhttp.send();
+                xmlhttp.onreadystatechange = function() {
+                    // If we are still loading...
+                    if(xmlhttp.readyState === 1) {
+                        document.getElementById("myDiv").innerHTML = "Wait while Im loading...";
+                    }
+                    // If everything is ok
+                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        // Instead of just placing the RAW XML content we need to parse it
+                        //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+                        //
+                        //
+                        //  document.getElementById("myDiv").innerHTML = txt;
+                        var xmlDoc = xmlhttp.responseXML;
+                        // Once again we find some tags from our variable containing XML
+                        var quotes = xmlDoc.getElementsByTagName("quote");
+                        var authors = xmlDoc.getElementsByTagName("author");
+                        // And since they are arrays, we use for loop to travel through them
+                        // I wanted to display results in a table so im creating table tags and table cells
+                        //
+                        var txt = "<table>";
+                        for(i = 0; i < quotes.length; i++) {
+                            txt += "<tr><td>" + quotes[i].childNodes[0].nodeValue + "</td>"+
+                                "<td>"    +authors[i].childNodes[0].nodeValue +  "</td></tr>";
+                            console.log(txt);
+                        }
+                        txt += "</table>";
+                        // Finally we place the contents in a div
+                        document.getElementById("tabledata").innerHTML = txt;
+                    }
+
+                }
+            }
+            // EX 4
+            // Lets define the same function as before, but with a parameter in which we can set the url/filename to be fetceh
+            function loadAndParseNews(filename) {
+                var xmlhttp = new XMLHttpRequest();
+                // We replace the statif file with URL
+                //
+                xmlhttp.open("GET", filename, true);
+                xmlhttp.send();
+                xmlhttp.onreadystatechange = function() {
+                    // If we are still loading...
+                    if(xmlhttp.readyState === 1) {
+                        document.getElementById("newsfeed").innerHTML = "Wait while Im loading...";
+                    }
+                    // If everything is ok
+                    if(xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        // Instead of just placing the RAW XML content we need to parse it
+                        //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+                        //
+                        var xmlDoc = xmlhttp.responseXML;
+                        console.log(xmlDoc);
+                        // Once again we find some tags from our variable containing XML
+                        var items = xmlDoc.getElementsByTagName("item");
+                        // And since they are arrays, we use for loop to travel through them
+                        // I wanted to display results in a table so im creating table tags and table cells
+                        //
+                        //
+                        var item, feedlink, name, description, content = '';
+                        for(i = 0; i < items.length; i++) {
+                            feedlink = items[i].getElementsByTagName('link').item(0).firstChild.nodeValue;
+                            name = items[i].getElementsByTagName('title').item(0).firstChild.nodeValue;
+                            item = '<li>'+ name + '</li>';
+                            item = '<li><a href="'+feedlink+'">'+ name + '</a></li>';
+                            content += item;
+                        }
+                        // Finally we place the contents in a div
+                        document.getElementById("newsfeed").innerHTML = "<ul>"+content+"</ul>";
+                    }
+                }
+            }
+		</script>
 	</body>
 </html>

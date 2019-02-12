@@ -26,6 +26,24 @@ hr {
     width: 50px;
     height: 50px;
 }
+.no-border {
+    border: 0;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+.error, .error textarea, .error input {
+    border-color: red;
+    color: red;
+}
+div.border {
+    border: 1px solid black;
+    padding: 5px;
+    float: left;
+}
+.clear {
+    clear: both;
+}
 .ws3 div, .ws4.div {
     width: 200px;
     height: 100px;
@@ -35,7 +53,7 @@ hr {
     margin: 10px;
     padding: 10px;
 }
-.ws3 table, .ws3 tr, .ws3 td, .ws3 th{
+.ws3 table, .ws3 tr, .ws3 td, .ws3 th, .ws5 table, ws5.tr, ws5.td{
     border: 1px solid gray;
     width: 50%;
     border-collapse: collapse;
@@ -47,5 +65,31 @@ table.display {
 .ws4 img {
     position: relative;
     left:0px;
+}
+.ws5 div {
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid black;
+}
+.ws5 span {
+    display: none;
+}
+.ws5 .error span {
+    display: block;
+}
+.ws6 div {
+    margin-bottom: 10px;
+}
+.ws6 table, .ws6 tr, .ws6 td, .ws7 table, .ws7 tr, .ws7 td {
+    border: 1px solid gray;
+    width: 50%;
+}
+.ws7 div {
+    min-width: 200px;
+    width: auto;
+    min-height: 200px;
+    height: auto;
+    border: 1px solid black;
 }
 

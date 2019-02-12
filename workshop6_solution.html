@@ -3,105 +3,7 @@
 	<head>
 		<title>Workshop 6</title>
 		<meta charset="utf-8">
-		<style>
-			body {
-				font-family: "Trebuchet MS", Helvetica, sans-serif;
-				color: #333333;
-			}
-			div {
-				margin-bottom: 10px;
-			}
-			div.border {
-				border: 1px solid black;
-				padding: 5px;
-				float: left;
-			}
-			.clear {
-				clear: both;
-			}
-			table, tr, td{
-			  border: 1px solid gray;
-			  width: 50%;
-			}
-		</style>
-		<script>
-			<!-- Assignment 1 solution -->
-			function getData() {
-				localStorage.setItem("destination", document.getElementById("destination").value);
-				localStorage.setItem("arrival", document.getElementById("arrival").value);
-				localStorage.setItem("internet", document.getElementById("CheckboxGroup1_0").checked);
-				localStorage.setItem("airconditioning", document.getElementById("CheckboxGroup1_1").checked);
-				localStorage.setItem("minibar", document.getElementById("CheckboxGroup1_2").checked);
-				localStorage.setItem("carrent", document.getElementById("CheckboxGroup1_3").checked);
-				localStorage.setItem("sauna", document.getElementById("CheckboxGroup1_4").checked);
-			}
-			<!-- Assignment 2 solution -->
-			function populateData() {
-				document.getElementById("destination").value = localStorage.getItem("destination");
-				document.getElementById("arrival").value = localStorage.getItem("arrival");
-				document.getElementById("CheckboxGroup1_0").checked = (JSON.parse(localStorage.getItem("internet")) == true);
-				document.getElementById("CheckboxGroup1_1").checked = (JSON.parse(localStorage.getItem("airconditioning")) == true);
-				document.getElementById("CheckboxGroup1_2").checked = (JSON.parse(localStorage.getItem("minibar")) == true);
-				document.getElementById("CheckboxGroup1_3").checked = (JSON.parse(localStorage.getItem("carrent")) == true);
-				document.getElementById("CheckboxGroup1_4").checked = (JSON.parse(localStorage.getItem("sauna")) == true);
-				var sessiondata = "<p>Destination: " + localStorage.getItem("destination") + "</p><p>Arrival: " + localStorage.getItem("arrival") + "</p><p>Services:</p><ul>";
-				if(JSON.parse(localStorage.getItem("internet")) == true) { 
-					sessiondata += "<li>Internet</li>";
-				}
-				if(JSON.parse(localStorage.getItem("airconditioning")) == true) { 
-					sessiondata += "<li>Air conditioning</li>";
-				}
-				if(JSON.parse(localStorage.getItem("minibar")) == true) { 
-					sessiondata += "<li>Mini bar</li>";
-				}
-				if(JSON.parse(localStorage.getItem("carrent")) == true) { 
-					sessiondata += "<li>Car rental</li>";
-				}
-				if(JSON.parse(localStorage.getItem("sauna")) == true) { 
-					sessiondata += "<li>Sauna</li>";
-				}				
-				sessiondata += "</ul>";
-				 document.getElementById("sessiondata").innerHTML = sessiondata;
-			}
-			<!-- Assignment 3 solution -->
-			function getData2() {
-				sessionStorage.setItem("destination", document.getElementById("destination2").value);
-				sessionStorage.setItem("arrival", document.getElementById("arrival2").value);
-				sessionStorage.setItem("internet", document.getElementById("CheckboxGroup1_02").checked);
-				sessionStorage.setItem("airconditioning", document.getElementById("CheckboxGroup1_12").checked);
-				sessionStorage.setItem("minibar", document.getElementById("CheckboxGroup1_22").checked);
-				sessionStorage.setItem("carrent", document.getElementById("CheckboxGroup1_32").checked);
-				sessionStorage.setItem("sauna", document.getElementById("CheckboxGroup1_42").checked);
-			}
-			<!-- Assignment 3 solution -->
-			function populateData2() {
-				document.getElementById("destination2").value = sessionStorage.getItem("destination");
-				document.getElementById("arrival2").value = sessionStorage.getItem("arrival");
-				document.getElementById("CheckboxGroup1_02").checked = (JSON.parse(sessionStorage.getItem("internet")) == true);
-				document.getElementById("CheckboxGroup1_12").checked = (JSON.parse(sessionStorage.getItem("airconditioning")) == true);
-				document.getElementById("CheckboxGroup1_22").checked = (JSON.parse(sessionStorage.getItem("minibar")) == true);
-				document.getElementById("CheckboxGroup1_32").checked = (JSON.parse(sessionStorage.getItem("carrent")) == true);
-				document.getElementById("CheckboxGroup1_42").checked = (JSON.parse(sessionStorage.getItem("sauna")) == true);
-				var sessiondata = "<p>Destination: " + sessionStorage.getItem("destination") + "</p><p>Arrival: " + sessionStorage.getItem("arrival") + "</p><p>Services:</p><ul>";
-				if(JSON.parse(sessionStorage.getItem("internet")) == true) { 
-					sessiondata += "<li>Internet</li>";
-				}
-				if(JSON.parse(sessionStorage.getItem("airconditioning")) == true) { 
-					sessiondata += "<li>Air conditioning</li>";
-				}
-				if(JSON.parse(sessionStorage.getItem("minibar")) == true) { 
-					sessiondata += "<li>Mini bar</li>";
-				}
-				if(JSON.parse(sessionStorage.getItem("carrent")) == true) { 
-					sessiondata += "<li>Car rental</li>";
-				}
-				if(JSON.parse(sessionStorage.getItem("sauna")) == true) { 
-					sessiondata += "<li>Sauna</li>";
-				}				
-				sessiondata += "</ul>";
-				 document.getElementById("sessiondata2").innerHTML = sessiondata;
-			}
-		</script>
+		<link rel="stylesheet" href="css/styles.css">
 	</head>
 	<!-- Assignment 2 & 3 solution -->
 	<body onload="populateData(); populateData2()">
@@ -184,5 +86,83 @@
 			example, would remember the data that you have entered between browser refresh and even 
 			restarts.</p>
 		</div>
+		<script>
+            <!-- Assignment 1 solution -->
+            function getData() {
+                localStorage.setItem("destination", document.getElementById("destination").value);
+                localStorage.setItem("arrival", document.getElementById("arrival").value);
+                localStorage.setItem("internet", document.getElementById("CheckboxGroup1_0").checked);
+                localStorage.setItem("airconditioning", document.getElementById("CheckboxGroup1_1").checked);
+                localStorage.setItem("minibar", document.getElementById("CheckboxGroup1_2").checked);
+                localStorage.setItem("carrent", document.getElementById("CheckboxGroup1_3").checked);
+                localStorage.setItem("sauna", document.getElementById("CheckboxGroup1_4").checked);
+            }
+            <!-- Assignment 2 solution -->
+            function populateData() {
+                document.getElementById("destination").value = localStorage.getItem("destination");
+                document.getElementById("arrival").value = localStorage.getItem("arrival");
+                document.getElementById("CheckboxGroup1_0").checked = (JSON.parse(localStorage.getItem("internet")) == true);
+                document.getElementById("CheckboxGroup1_1").checked = (JSON.parse(localStorage.getItem("airconditioning")) == true);
+                document.getElementById("CheckboxGroup1_2").checked = (JSON.parse(localStorage.getItem("minibar")) == true);
+                document.getElementById("CheckboxGroup1_3").checked = (JSON.parse(localStorage.getItem("carrent")) == true);
+                document.getElementById("CheckboxGroup1_4").checked = (JSON.parse(localStorage.getItem("sauna")) == true);
+                var sessiondata = "<p>Destination: " + localStorage.getItem("destination") + "</p><p>Arrival: " + localStorage.getItem("arrival") + "</p><p>Services:</p><ul>";
+                if(JSON.parse(localStorage.getItem("internet")) == true) {
+                    sessiondata += "<li>Internet</li>";
+                }
+                if(JSON.parse(localStorage.getItem("airconditioning")) == true) {
+                    sessiondata += "<li>Air conditioning</li>";
+                }
+                if(JSON.parse(localStorage.getItem("minibar")) == true) {
+                    sessiondata += "<li>Mini bar</li>";
+                }
+                if(JSON.parse(localStorage.getItem("carrent")) == true) {
+                    sessiondata += "<li>Car rental</li>";
+                }
+                if(JSON.parse(localStorage.getItem("sauna")) == true) {
+                    sessiondata += "<li>Sauna</li>";
+                }
+                sessiondata += "</ul>";
+                document.getElementById("sessiondata").innerHTML = sessiondata;
+            }
+            <!-- Assignment 3 solution -->
+            function getData2() {
+                sessionStorage.setItem("destination", document.getElementById("destination2").value);
+                sessionStorage.setItem("arrival", document.getElementById("arrival2").value);
+                sessionStorage.setItem("internet", document.getElementById("CheckboxGroup1_02").checked);
+                sessionStorage.setItem("airconditioning", document.getElementById("CheckboxGroup1_12").checked);
+                sessionStorage.setItem("minibar", document.getElementById("CheckboxGroup1_22").checked);
+                sessionStorage.setItem("carrent", document.getElementById("CheckboxGroup1_32").checked);
+                sessionStorage.setItem("sauna", document.getElementById("CheckboxGroup1_42").checked);
+            }
+            <!-- Assignment 3 solution -->
+            function populateData2() {
+                document.getElementById("destination2").value = sessionStorage.getItem("destination");
+                document.getElementById("arrival2").value = sessionStorage.getItem("arrival");
+                document.getElementById("CheckboxGroup1_02").checked = (JSON.parse(sessionStorage.getItem("internet")) == true);
+                document.getElementById("CheckboxGroup1_12").checked = (JSON.parse(sessionStorage.getItem("airconditioning")) == true);
+                document.getElementById("CheckboxGroup1_22").checked = (JSON.parse(sessionStorage.getItem("minibar")) == true);
+                document.getElementById("CheckboxGroup1_32").checked = (JSON.parse(sessionStorage.getItem("carrent")) == true);
+                document.getElementById("CheckboxGroup1_42").checked = (JSON.parse(sessionStorage.getItem("sauna")) == true);
+                var sessiondata = "<p>Destination: " + sessionStorage.getItem("destination") + "</p><p>Arrival: " + sessionStorage.getItem("arrival") + "</p><p>Services:</p><ul>";
+                if(JSON.parse(sessionStorage.getItem("internet")) == true) {
+                    sessiondata += "<li>Internet</li>";
+                }
+                if(JSON.parse(sessionStorage.getItem("airconditioning")) == true) {
+                    sessiondata += "<li>Air conditioning</li>";
+                }
+                if(JSON.parse(sessionStorage.getItem("minibar")) == true) {
+                    sessiondata += "<li>Mini bar</li>";
+                }
+                if(JSON.parse(sessionStorage.getItem("carrent")) == true) {
+                    sessiondata += "<li>Car rental</li>";
+                }
+                if(JSON.parse(sessionStorage.getItem("sauna")) == true) {
+                    sessiondata += "<li>Sauna</li>";
+                }
+                sessiondata += "</ul>";
+                document.getElementById("sessiondata2").innerHTML = sessiondata;
+            }
+		</script>
 	</body>
 </html>
