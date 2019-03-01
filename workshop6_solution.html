@@ -124,6 +124,13 @@
                 }
                 sessiondata += "</ul>";
                 document.getElementById("sessiondata").innerHTML = sessiondata;
+				/*
+				Or you could use a loop if you wanted to print out all items:
+				 */
+                for (var i = 0; i < localStorage.length; i++){
+                    console.log(localStorage.key(i) + ": " + localStorage.getItem(localStorage.key(i)));
+                }
+
             }
             <!-- Assignment 3 solution -->
             function getData2() {
@@ -139,6 +146,7 @@
             function populateData2() {
                 document.getElementById("destination2").value = sessionStorage.getItem("destination");
                 document.getElementById("arrival2").value = sessionStorage.getItem("arrival");
+                <!-- JSON.parse is used here because sessionStorage values are strings, not booleans -> the check == true would be false -->
                 document.getElementById("CheckboxGroup1_02").checked = (JSON.parse(sessionStorage.getItem("internet")) == true);
                 document.getElementById("CheckboxGroup1_12").checked = (JSON.parse(sessionStorage.getItem("airconditioning")) == true);
                 document.getElementById("CheckboxGroup1_22").checked = (JSON.parse(sessionStorage.getItem("minibar")) == true);
