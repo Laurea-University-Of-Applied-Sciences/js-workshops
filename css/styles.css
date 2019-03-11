@@ -92,4 +92,32 @@ table.display {
     height: auto;
     border: 1px solid black;
 }
+.ws8 table {
+    border-collapse: collapse;
+    width: 700px;
+    border: 1px solid black;
+}
+.ws8 th, .ws8 td {
+    padding: 4px;
+    font-family: Verdana;
+    font-size: 12px;
+}
+.ws8 tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+.ws8 th, .ws8 td {
+    border: 1px solid #ddd;
+}
+.ws8 td {
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+}
+.ws8 img {
+    width: 100px;
+}
+#jsondata, #rawdata, #weatherdata {
+    border: 1px solid black;
+    padding: 10px;
+}
 
