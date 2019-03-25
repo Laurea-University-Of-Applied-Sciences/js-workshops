@@ -32,7 +32,7 @@ hr {
     padding: 0;
     margin: 0;
 }
-.error, .error textarea, .error input {
+.red, .error, .error textarea, .error input {
     border-color: red;
     color: red;
 }
@@ -120,4 +120,20 @@ table.display {
     border: 1px solid black;
     padding: 10px;
 }
-
+.ws9 div {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+}
+#ajax {
+    width: 80%;
+    height: 500px;
+    border: 1px solid black;
+    overflow: auto;
+    padding: 20px;
+}
+.ws-9 #main-content {
+    width: 100%;
+    height: auto;
+    border: 0;
+}
